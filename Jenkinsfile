@@ -7,7 +7,7 @@ pipeline {
             } 
             agent {
                 docker {
-                    image 'tomernoy1/mono:3.0'
+                    image 'tomernoy1/mono:3.1'
                     reuseNode true
                 }
             }
@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'tomernoy1/mono:3.0'
+                    image 'tomernoy1/mono:3.1'
                     reuseNode true
                 }
             }
