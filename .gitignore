@@ -1,0 +1,11 @@
+packages/
+Automation/bin/
+bin/Debug
+obj/Debug
+Automation/obj/
+Automation\bin\Debug
+Automation\obj\Debug
+Automation/Defect_Screenshots
+Automation/Job_Reports
+.nuget/
+.vs/
