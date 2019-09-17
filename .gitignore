@@ -1,11 +1,9 @@
 packages/
-Automation/bin/
+tomerdotnet/bin/
 bin/Debug
 obj/Debug
-Automation/obj/
-Automation\bin\Debug
-Automation\obj\Debug
-Automation/Defect_Screenshots
-Automation/Job_Reports
+tomerdotnet/obj/
+tomerdotnet\bin\Debug
+tomerdotnet\obj\Debug
 .nuget/
 .vs/
