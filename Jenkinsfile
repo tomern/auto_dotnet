@@ -4,31 +4,19 @@ pipeline {
         stage('Getting nugets') {
             environment {
                 HOME = '/tmp'
-            } 
+            }
             agent {
                 docker {
-                    image 'tomernoy1/mono:3.1'
+                    image 'mono:latest'
                     reuseNode true
                 }
             }
             steps {
-                sh 'nuget restore tomerdotnet.sln'
-                sh 'msbuild tomerdotnet.sln'
-                sh 'mono packages/NUnit.ConsoleRunner.3.10.0/tools/nunit3-console.exe tomerdotnet/bin/Debug/tomerdotnet.dll'
+                sh 'nuget restore Automation.sln'
+                sh 'msbuild Automation.sln'
+                sh 'mono packages/NUnit.ConsoleRunner.3.10.0/tools/nunit3-console.exe Automation/bin/Debug/Automation.dll'
+                nunit testResultsPattern: 'TestResult.xml'
             }
-        }
-        stage('Test') {
-            agent {
-                docker {
-                    image 'tomernoy1/mono:3.1'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'ls tomerdotnet'
-                // sh 'ls /var/jenkins_home/workspace/automation_dotnet_master/tomerdotnet'
-                // sh 'mono /nunit/nunit3-console.exe /var/jenkins_home/workspace/automation_dotnet_master/bin/Debug/tomerdotnet.dll'
-            }  
         }
     }
 }
